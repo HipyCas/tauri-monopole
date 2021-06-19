@@ -3,6 +3,10 @@
 describe("My First Test", () => {
   it("Visits the app root url", () => {
     cy.visit("/");
-    cy.contains("h1", "Welcome to Your Vue.js App");
+    cy.contains("button", "Run");
+    cy.contains("button", "Animate");
+    cy.contains("button", "Stop Animation");
+    cy.get(".link[href=/settings]").click();
+    cy.contains("h1", "Settings");
   });
 });

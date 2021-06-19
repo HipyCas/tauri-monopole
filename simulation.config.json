@@ -1,0 +1,8 @@
+{
+  "count": 50,
+  "velocity": { "x": 1.0, "y": 0.0, "z": 0.0 },
+  "position": { "x": 0.0, "y": 0.0, "z": 1.0 },
+  "mass": -1.0,
+  "charge": 1.0,
+  "intensity": 1.0
+}

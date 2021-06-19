@@ -1,6 +1,6 @@
 {
   "package": {
-    "productName": "undefined",
+    "productName": "Magnetic Monopole",
     "version": "0.1.0"
   },
   "build": {
@@ -13,7 +13,7 @@
     "bundle": {
       "active": true,
       "targets": "all",
-      "identifier": "com.tauri.dev",
+      "identifier": "com.hipycas.monopole",
       "icon": [
         "icons/32x32.png",
         "icons/128x128.png",
@@ -23,9 +23,9 @@
       ],
       "resources": [],
       "externalBin": [],
-      "copyright": "",
-      "category": "DeveloperTool",
-      "shortDescription": "",
+      "copyright": "© Hipy Cas 2021, licensed under GPL-3.0+",
+      "category": "Education",
+      "shortDescription": "A desktop application viewer for the magnetic monopole simulation",
       "longDescription": "",
       "deb": {
         "depends": [],
@@ -37,7 +37,8 @@
         "useBootstrapper": false,
         "exceptionDomain": "",
         "signingIdentity": null,
-        "entitlements": null
+        "entitlements": null,
+        "license": "../LICENSE"
       },
       "windows": {
         "certificateThumbprint": null,
@@ -53,7 +54,7 @@
     },
     "windows": [
       {
-        "title": "undefined",
+        "title": "Magnetic Monopole Visualizer",
         "width": 800,
         "height": 600,
         "resizable": true,
@@ -62,6 +63,33 @@
     ],
     "security": {
       "csp": "default-src blob: data: filesystem: ws: http: https: 'unsafe-eval' 'unsafe-inline' 'self' img-src: 'self'"
+    },
+    "cli": {
+      "beforeHelp": "© Hipy Cas 2021, licensed under GPL-3.0+",
+      "afterHelp": "When passed a configuration file with -c/--config, any other value passed individually will override that in the passed configuration file",
+      "description": "The desktop utility for the magnetic monopole simulation. Run `open` for GUI or `run` for CLI.",
+      "args": [
+        {
+          "name": "config",
+          "short": "c",
+          "takesValue": true,
+          "multiple": false
+        },
+        {
+          "name": "iterations",
+          "short": "i",
+          "takesValue": true,
+          "multiple": false,
+          "description": "The number of iterations to run"
+        },
+        {
+          "name": "velocity",
+          "short": "v",
+          "takesValue": true,
+          "multiple": false,
+          "description": "The x, y and z value for the initial velocity, comma separated"
+        }
+      ]
     }
   }
 }
