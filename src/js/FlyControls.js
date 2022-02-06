@@ -45,7 +45,7 @@ export default function (object, domElement, opts) {
       return;
     }
 
-    //event.preventDefault();
+    // event.preventDefault();
 
     switch (event.keyCode) {
       case 16:
@@ -53,45 +53,45 @@ export default function (object, domElement, opts) {
         break;
 
       case 87:
-        /*W*/ this.moveState.forward = 1;
+        /* W */ this.moveState.forward = 1;
         break;
       case 83:
-        /*S*/ this.moveState.back = 1;
+        /* S */ this.moveState.back = 1;
         break;
 
       case 65:
-        /*A*/ this.moveState.left = 1;
+        /* A */ this.moveState.left = 1;
         break;
       case 68:
-        /*D*/ this.moveState.right = 1;
+        /* D */ this.moveState.right = 1;
         break;
 
       case 82:
-        /*R*/ this.moveState.up = 1;
+        /* R */ this.moveState.up = 1;
         break;
       case 70:
-        /*F*/ this.moveState.down = 1;
+        /* F */ this.moveState.down = 1;
         break;
 
       case 38:
-        /*up*/ this.moveState.pitchUp = 1;
+        /* up */ this.moveState.pitchUp = 1;
         break;
       case 40:
-        /*down*/ this.moveState.pitchDown = 1;
+        /* down */ this.moveState.pitchDown = 1;
         break;
 
       case 37:
-        /*left*/ this.moveState.yawLeft = 1;
+        /* left */ this.moveState.yawLeft = 1;
         break;
       case 39:
-        /*right*/ this.moveState.yawRight = 1;
+        /* right */ this.moveState.yawRight = 1;
         break;
 
       case 81:
-        /*Q*/ this.moveState.rollLeft = 1;
+        /* Q */ this.moveState.rollLeft = 1;
         break;
       case 69:
-        /*E*/ this.moveState.rollRight = 1;
+        /* E */ this.moveState.rollRight = 1;
         break;
     }
 
@@ -106,45 +106,45 @@ export default function (object, domElement, opts) {
         break;
 
       case 87:
-        /*W*/ this.moveState.forward = 0;
+        /* W */ this.moveState.forward = 0;
         break;
       case 83:
-        /*S*/ this.moveState.back = 0;
+        /* S */ this.moveState.back = 0;
         break;
 
       case 65:
-        /*A*/ this.moveState.left = 0;
+        /* A */ this.moveState.left = 0;
         break;
       case 68:
-        /*D*/ this.moveState.right = 0;
+        /* D */ this.moveState.right = 0;
         break;
 
       case 82:
-        /*R*/ this.moveState.up = 0;
+        /* R */ this.moveState.up = 0;
         break;
       case 70:
-        /*F*/ this.moveState.down = 0;
+        /* F */ this.moveState.down = 0;
         break;
 
       case 38:
-        /*up*/ this.moveState.pitchUp = 0;
+        /* up */ this.moveState.pitchUp = 0;
         break;
       case 40:
-        /*down*/ this.moveState.pitchDown = 0;
+        /* down */ this.moveState.pitchDown = 0;
         break;
 
       case 37:
-        /*left*/ this.moveState.yawLeft = 0;
+        /* left */ this.moveState.yawLeft = 0;
         break;
       case 39:
-        /*right*/ this.moveState.yawRight = 0;
+        /* right */ this.moveState.yawRight = 0;
         break;
 
       case 81:
-        /*Q*/ this.moveState.rollLeft = 0;
+        /* Q */ this.moveState.rollLeft = 0;
         break;
       case 69:
-        /*E*/ this.moveState.rollRight = 0;
+        /* E */ this.moveState.rollRight = 0;
         break;
     }
 
@@ -178,9 +178,9 @@ export default function (object, domElement, opts) {
 
   this.mousemove = function (event) {
     if (!this.dragToLook || this.mouseStatus > 0) {
-      var container = this.getContainerDimensions();
-      var halfWidth = container.size[0] / 2;
-      var halfHeight = container.size[1] / 2;
+      const container = this.getContainerDimensions();
+      const halfWidth = container.size[0] / 2;
+      const halfHeight = container.size[1] / 2;
 
       this.moveState.yawLeft =
         -(event.pageX - container.offset[0] - halfWidth) / halfWidth;
@@ -216,8 +216,8 @@ export default function (object, domElement, opts) {
   };
 
   this.update = function (delta) {
-    var moveMult = delta * this.movementSpeed;
-    var rotMult = delta * this.rollSpeed;
+    const moveMult = delta * this.movementSpeed;
+    const rotMult = delta * this.rollSpeed;
 
     this.object.translateX(this.moveVector.x * moveMult);
     this.object.translateY(this.moveVector.y * moveMult);
@@ -241,7 +241,7 @@ export default function (object, domElement, opts) {
   };
 
   this.updateMovementVector = function () {
-    var forward =
+    const forward =
       this.moveState.forward || (this.autoForward && !this.moveState.back)
         ? 1
         : 0;
@@ -250,7 +250,7 @@ export default function (object, domElement, opts) {
     this.moveVector.y = -this.moveState.down + this.moveState.up;
     this.moveVector.z = -forward + this.moveState.back;
 
-    //console.log( 'move:', [ this.moveVector.x, this.moveVector.y, this.moveVector.z ] );
+    // console.log( 'move:', [ this.moveVector.x, this.moveVector.y, this.moveVector.z ] );
   };
 
   this.updateRotationVector = function () {
@@ -258,7 +258,7 @@ export default function (object, domElement, opts) {
     this.rotationVector.y = -this.moveState.yawRight + this.moveState.yawLeft;
     this.rotationVector.z = -this.moveState.rollRight + this.moveState.rollLeft;
 
-    //console.log( 'rotate:', [ this.rotationVector.x, this.rotationVector.y, this.rotationVector.z ] );
+    // console.log( 'rotate:', [ this.rotationVector.x, this.rotationVector.y, this.rotationVector.z ] );
   };
 
   this.getContainerDimensions = function () {
